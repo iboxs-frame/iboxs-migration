@@ -1,0 +1,44 @@
+{
+    "name": "iboxs/iboxs-migration",
+    "authors": [
+        {
+            "name": "yunwuxin",
+            "email": "448901948@qq.com"
+        }
+    ],
+    "license": "Apache-2.0",
+    "autoload": {
+        "psr-4": {
+            "Phinx\\": "phinx",
+            "iboxs\\migration\\": "src"
+        }
+    },
+    "require": {
+        "php": ">=7.2",
+        "iboxs/framework": "^1.0.0",
+        "iboxs/iboxs-helper": "^1.0.0"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "^1.8",
+        "robmorgan/phinx": "^0.13.4",
+        "composer/composer": "^2.5.8"
+    },
+    "suggest": {
+        "fzaninotto/faker": "Required to use the factory builder (^1.8)."
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "iboxs\\migration\\UsePhinx::run"
+        ],
+        "post-update-cmd": [
+            "iboxs\\migration\\UsePhinx::run"
+        ]
+    },
+    "extra": {
+        "iboxs": {
+            "services": [
+                "iboxs\\migration\\Service"
+            ]
+        }
+    }
+}
